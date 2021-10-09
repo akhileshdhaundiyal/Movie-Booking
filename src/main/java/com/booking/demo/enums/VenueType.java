@@ -1,5 +1,5 @@
 package com.booking.demo.enums;
 
-public enum Venue {
+public enum VenueType {
     THEATRE, CONFERENCE_HALL;
 }

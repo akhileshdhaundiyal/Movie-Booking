@@ -1,5 +1,5 @@
 package com.booking.demo.enums;
 
-public enum Status {
+public enum SeatStatus {
     AVAILABLE, BOOKED, CANCELLED, ONHOLD;    
 }

@@ -10,7 +10,8 @@ public class BookingFilter {
 
     private Calendar date;
     private String cityName;
-    private String theatreName;
-    private List<Integer> seats;
+    private String eventName;
+    private String venueName;
+    private List<Seat> seats;
 
 }
