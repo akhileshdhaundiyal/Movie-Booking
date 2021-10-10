@@ -3,8 +3,11 @@ package com.booking.demo.entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -14,17 +17,22 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "theatre")
+@Table(name = "venue")
 public class Venue {
 
     @Id
-    private Integer id;
-    private String name;
+    private Integer id;    
+    
+    @Enumerated(EnumType.STRING)
     private VenueType venueType;
-    private String city;
 
-    @OneToMany
-    @JoinColumn(name="event")
-    private List<Event> events;
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
+    private String town;
+    private int noOfSeats;
     
 }

@@ -4,6 +4,8 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -15,17 +17,21 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "movie")
+@Table(name = "event")
 public class Event {
 
     @Id
     private Integer id;
-    private String name;
-    private EventType eventType;
-    private Calendar date;
+    private String showId; //FK?
     
     @OneToMany
-    @JoinColumn(name="city")
-    private List<Venue> venues;
+    @JoinColumn(name = "venue_id")
+    private List<Venue> venue;
+    
+    @Enumerated(EnumType.STRING)
+    private EventType eventType;
+
+    private Calendar startDateTime;
+    private Calendar endDateTime;
     
 }

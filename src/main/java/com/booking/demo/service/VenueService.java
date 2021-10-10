@@ -21,7 +21,7 @@ public class VenueService {
         if(filter == null || filter.getEventName().isEmpty() || filter.getDate() == null)
             return null;
         
-        List<Venue> theatres = venueRepository.findByEventsNameAndEventsDate(filter.getEventName(), filter.getDate());
+        List<Venue> theatres = venueRepository.findVenues(filter.getEventName(), filter.getDate());
         return theatres;
     }
     
